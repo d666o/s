@@ -4,14 +4,13 @@ import Operations from './Operations';
 import Result from './Result';
 
 const App = () => {
-  const [op, setOp] = useState('')
   const [res, setRes] = useState('')
   const [result, setResult] = useState('')
-  const opHandler = (item) => {
-    setOp(item)
-  }
   const resHandler = (item) => {
     setRes(res + item)
+  }
+  const resDelete = (item) => {
+    setRes(item)
   }
   const resReset = () => {
     setRes('')
@@ -24,10 +23,9 @@ const App = () => {
     <div>
       <Result res = {res} result = {result} />
       <Operations
-        op = {op} opHandler = {opHandler}
         res = {res} resHandler = {resHandler}
         resultHandler = {resultHandler}
-        resReset = {resReset}
+        resReset = {resReset} resDelete = {resDelete}
       />
     </div>
   )
