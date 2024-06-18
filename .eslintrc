@@ -1,0 +1,59 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended",
+        "plugin:unicorn/recommended",
+        "plugin:react-hooks/recommended"
+    ],
+    "env": { "browser": true, "node": true, "es6": true },
+    "ignorePatterns": ["dist", "node_modules"],
+    "overrides": [
+        {
+            "env": { "node": true },
+            "files": ["src/**/*.jsx", "src/*.jsx"],
+            "parserOptions": { "sourceType": "module" }
+        }
+    ],
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "ecmaFeatures": {
+            "jsx": true,
+            "modules": true,
+            "spread": true,
+            "restParams": true
+        },
+        "sourceType": "module",
+        "requireConfigFile": false,
+        "babelOptions": {
+            "babelrc": false,
+            "configFile": false,
+            "presets": ["@babel/preset-env"],
+            "parserOpts": {
+                "plugins": ["jsx"]
+            }
+        }
+    },
+
+    "settings": { "react": { "version": "18.3.1" } },
+    "plugins": ["react", "react-refresh", "unicorn", "react-hooks", "prettier"],
+    "rules": {
+        "react/jsx-no-target-blank": "off",
+        "unicorn/filename-case": "off",
+        "react-refresh/only-export-components": [
+            "warn",
+            { "allowConstantExport": true }
+        ],
+        "no-var": "error",
+        "prefer-const": "warn",
+        "react/prop-types": "off",
+        "react/react-in-jsx-scope": "off",
+        "prettier/prettier": [
+            "warn",
+            {
+                "endOfLine": "auto"
+            }
+        ]
+    }
+}

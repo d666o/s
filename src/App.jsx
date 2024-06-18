@@ -1,19 +1,20 @@
 import { useState } from 'react';
 import './App.css';
-import Operations from './Operations';
-import Result from './Result';
+import { Operations } from './Operations';
+import { Result } from './Result';
 
-const App = () => {
-    const [res, setRes] = useState('');
+export const App = () => {
+    const [resource, setResource] = useState('');
     const [result, setResult] = useState('');
-    const resHandler = item => {
-        setRes(res + item);
+
+    const resourceHandler = item => {
+        setResource(previous => previous + item);
     };
-    const resDelete = item => {
-        setRes(item);
+    const resourceDelete = item => {
+        setResource(item);
     };
-    const resReset = () => {
-        setRes('');
+    const resourceReset = () => {
+        setResource('');
     };
     const resultHandler = item => {
         setResult(item);
@@ -21,16 +22,14 @@ const App = () => {
 
     return (
         <div>
-            <Result res={res} result={result} />
+            <Result resource={resource} result={result} />
             <Operations
-                res={res}
-                resHandler={resHandler}
+                resource={resource}
+                resourceHandler={resourceHandler}
                 resultHandler={resultHandler}
-                resReset={resReset}
-                resDelete={resDelete}
+                resourceReset={resourceReset}
+                resourceDelete={resourceDelete}
             />
         </div>
     );
 };
-
-export default App;

@@ -1,12 +1,10 @@
 import './Result.css';
 
-const Result = (props) => {
+export const Result = properties => {
     return (
-      <div className='result'>
-          <span className='disc'>{props.res}</span>
-          <span className='res'>{props.result}</span>
-      </div>
-    )
-}
-
-export default Result
+        <div className="result">
+            <span className="disc">{properties.resource}</span>
+            <span className="res">{properties.result}</span>
+        </div>
+    );
+};
